@@ -65,7 +65,7 @@
 }
 
 html {
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Lato', sans-serif;
   width: 100%;
   height: 100%;
@@ -73,14 +73,267 @@ html {
   box-sizing: border-box;
   background-color: #ffffff;
   color: #525860;
-  padding: 0px;
-  margin: 0px;
+  margin: 0;
+  padding: 0 16px;
+}
+
+@media (min-width: 600px) {
+  html {
+    padding: 0 32px;
+  }
 }
 
 body {
-  width: 100%;
   height: 100%;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
   box-sizing: inherit;
-  padding: 0px;
-  margin: 0px;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  flex: 1;
+}
+
+.site-header {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  line-height: 13px;
+  width: 100%;
+}
+
+.site-header nav {
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .site-header {
+    margin: 0;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    padding-left: 4px;
+  }
+  .site-header nav {
+    text-align: left;
+  }
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 0;
+  margin-left: 6px;
+  margin-right: 6px;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #525860;
+  transition: all .25s ease;
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+
+.nav-link:hover, .nav-link:focus, .nav-link:active {
+  color: #862019;
+}
+
+@media (min-width: 600px) {
+  .nav-link {
+    margin-left: 0px;
+    margin-right: 12px;
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+
+.header-logo {
+  display: block;
+  margin: 0px auto 16px auto;
+  text-align: center;
+}
+
+.header-logo img {
+  width: 183px;
+  height: 47px;
+}
+
+@media (min-width: 600px) {
+  .header-logo {
+    margin-top: -16px;
+    float: right;
+  }
+}
+
+.home-sequence {
+  max-width: 1024px;
+  width: 100%;
+  word-wrap: normal;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  color: #862019;
+  font-size: 40px;
+  font-size: 2.5rem;
+}
+
+.home-sequence strong {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  color: #862019;
+  font-size: 40px;
+  font-size: 2.5rem;
+}
+
+@media (min-width: 600px) {
+  .home-sequence strong {
+    font-size: 80px;
+    font-size: 5rem;
+  }
+}
+
+.home-sequence .strong-em {
+  font-family: 'Lato', sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  color: #862019;
+  font-size: 40px;
+  font-size: 2.5rem;
+}
+
+@media (min-width: 600px) {
+  .home-sequence .strong-em {
+    font-size: 80px;
+    font-size: 5rem;
+  }
+}
+
+.home-sequence em {
+  font-family: 'Lato', sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  color: #862019;
+  font-size: 40px;
+  font-size: 2.5rem;
+}
+
+@media (min-width: 600px) {
+  .home-sequence em {
+    font-size: 80px;
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .home-sequence {
+    font-size: 80px;
+    font-size: 5rem;
+  }
+}
+
+.home-sequence-1 {
+  display: none;
+}
+
+.home-sequence-2 {
+  display: none;
+}
+
+.home-sequence-3 {
+  display: none;
+}
+
+.seq-link {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 30px;
+  font-size: 1.875rem;
+  margin-top: 16px;
+  position: relative;
+  background-color: #862019;
+  display: inline-block;
+  text-decoration: none;
+  line-height: .96;
+  padding: 0px 4px 6px 4px;
+  transition: all .25s ease;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 600px) {
+  .seq-link {
+    font-size: 60px;
+    font-size: 3.75rem;
+  }
+}
+
+.seq-link p {
+  margin-top: -2px;
+  padding: 0px 6px 0px 6px;
+  border-bottom: 2px solid #ffffff;
+  transition: all .25s ease;
+}
+
+@media (min-width: 600px) {
+  .seq-link {
+    margin-top: 25px;
+    padding: 0px 4px 6px 4px;
+  }
+}
+
+.seq-link:hover, .seq-link:focus, .seq-link:active {
+  color: #862019;
+  background-color: #ffffff;
+}
+
+.seq-link:hover .seq-link:after {
+  background: #862019;
+}
+
+.seq-link::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  right: 4px;
+  margin: 0 auto;
+  background: #ffffff;
+  height: 1px;
+  transiti3n: all .25s ease;
+}
+
+@media (min-width: 600px) {
+  .seq-link::after {
+    left: 4p4;
+    bottom: 6px;
+    right: 4px;
+  }
+}
+
+.site-footer {
+  text-align: center;
+  padding: 12px;
+}
+
+.site-footer p {
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: #9198a1;
 }

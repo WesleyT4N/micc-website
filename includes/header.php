@@ -13,11 +13,18 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typeit@5.4.1/dist/typeit.min.js"></script>
   <script src="./js/main.js"></script>
 </head>
-<header>
+<body>
+<header class="site-header">
+  <a class="header-logo" href="#" aria-label="logo home button">
+      <img  src="./img/logo.svg" alt="MICC Logo"/>
+  </a>
   <nav>
-    
+    <a class="nav-link" href="#">leadership</a>
+    <a class="nav-link" href="#">work</a>
+    <a class="nav-link" href="#">recruitment</a>
   </nav>
 </header>
-<body>
+<div class="content">

@@ -214,12 +214,17 @@ html {
 
 body {
   height: 100%;
-  max-width: 1280px;
+  max-width: 1024px;
   width: 100%;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   min-height: 100vh;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 *, *:before, *:after {
@@ -236,7 +241,9 @@ dl, dd, ol, ul, figure {
 
 // GENERAL LAYOUT =============================================================
 .content {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 // Navigation =================================================================
@@ -266,6 +273,7 @@ dl, dd, ol, ul, figure {
   margin-left: 6px;
   margin-right: 6px;
   @include body();
+  -webkit-transition: all .25s ease;
   transition: all .25s ease;
   &:hover, &:focus, &:active {
     color: $accent;
@@ -331,18 +339,13 @@ dl, dd, ol, ul, figure {
   display: inline-block;
   text-decoration: none;
   line-height: .96;
-  padding: 0px 4px 6px 4px;
+  padding: 0px 4px 8px 4px;
+  -webkit-transition: all .25s ease;
   transition: all .25s ease;
   margin-bottom: 32px;
-  p {
-    margin-top: -2px;
-    padding: 0px 6px 0px 6px;
-    border-bottom: 2px solid $white;
-    transition: all .25s ease;
-  }
   @include for-tablet-portrait-up() {
     margin-top: 25px;
-    padding: 0px 4px 6px 4px;
+    padding: 0px 4px 10px 4px;
   }
   &:hover, &:focus, &:active {
     color: $accent;
@@ -350,31 +353,331 @@ dl, dd, ol, ul, figure {
   }
 }
 
-.seq-link:hover .seq-link:after {
+.seq-link:hover::after {
   background: $accent;
 }
 .seq-link::after{
   content:"";
   position:absolute;
   left: 4px;
-  bottom: 4px;
+  bottom: 6px;
   right: 4px;
   margin: 0 auto;
   background: $white;
   height: 1px;
-  transiti3n: all .25s ease;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
   @include for-tablet-portrait-up {
-    left: 4p4;
-    bottom: 6px;
+    left: 4px;
+    bottom: 10px;
     right: 4px;
   }
 }
 
-// FOOTER6=====================================================================
+// RECRUITMENT PAGE ==========================================================
+.sectors {
+  text-align: center;
+  margin-bottom: 32px;
+  margin: 0 auto;
+}
+
+.sector-button {
+  position: relative;
+  width: 32%;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  text-align: center;
+  background-color: $white;
+  outline: none;
+  border: none;
+  transition: all .25s ease;
+  overflow: hidden;
+  @include for-tablet-landscape-up() {
+    margin-bottom: 0px;
+    width: 13%;
+    padding-bottom: 20px;
+  }
+  &:hover,&:focus {
+    @include shadow(2);
+  }
+  &:active {
+    @include shadow(1);
+  }
+}
+
+
+
+.sector-title {
+  @include body();
+  @include font-size(14px);
+  @include for-tablet-landscape-up() { 
+    margin-top: -10px;
+    @include font-size(16px);
+  }
+  font-weight: 400;
+
+}
+.sector-icon {
+  height: 60px;
+  max-width: 40px;
+  margin: 0;
+  background-color: $white;
+  @include for-tablet-landscape-up() {
+    height: 80px;
+    max-width: 60px;
+  }
+
+}
+
+.sector-description {
+  padding: 20px 32px 24px 32px;
+  background-color: darken($white, 5);
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  p {
+    @include font-size(18px);
+    font-weight: 300;
+    strong {
+      font-weight: 400;
+    }
+  }
+}
+
+.sector-description-1, .sector-description-2, .sector-description-3, 
+.sector-description-4, .sector-description-5, .sector-description-6 {
+  display: none;
+  transition: all .25s ease;
+}
+
+.sector-description-1::after {
+  @include for-tablet-landscape-up() {
+    content: "";
+    position: absolute;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -10px;
+    left: calc(16.5% - 10px);
+    border-width: 10px;
+    border-style: solid;
+    border-color: darken($white, 5) transparent transparent darken($white, 5);
+    z-index: 0;
+  }
+}
+
+.sector-description-2::after {
+  @include for-tablet-landscape-up() {
+    content: "";
+    position: absolute;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -10px;
+    left: calc(30% - 10px);
+    border-width: 10px;
+    border-style: solid;
+    border-color: darken($white, 5) transparent transparent darken($white, 5);
+    z-index: 0;
+  }
+}
+
+.sector-description-3::after {
+  @include for-tablet-landscape-up() {
+    content: "";
+    position: absolute;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -10px;
+    left: calc(43% - 8px);
+    border-width: 10px;
+    border-style: solid;
+    border-color: darken($white, 5) transparent transparent darken($white, 5);
+    z-index: 0;
+  }
+}
+
+.sector-description-4::after {
+  @include for-tablet-landscape-up() {
+    content: "";
+    position: absolute;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -10px;
+    left: calc(56.5% - 8px);
+    border-width: 10px;
+    border-style: solid;
+    border-color: darken($white, 5) transparent transparent darken($white, 5);
+    z-index: 0;
+  }
+}
+
+.sector-description-5::after {
+  @include for-tablet-landscape-up() {
+    content: "";
+    position: absolute;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -10px;
+    left: calc(70% - 10px);
+    border-width: 10px;
+    border-style: solid;
+    border-color: darken($white, 5) transparent transparent darken($white, 5);
+    z-index: 0;
+  }
+}
+
+.sector-description-6::after {
+  @include for-tablet-landscape-up() {
+    content: "";
+    position: absolute;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -10px;
+    left: calc(83% - 8px);
+    border-width: 10px;
+    border-style: solid;
+    border-color: darken($white, 5) transparent transparent darken($white, 5);
+    z-index: 0;
+  }
+}
+
+.recruitment-wrapper {
+  text-align: center;
+}
+
+.recruitment-header {
+  @include header-bold();
+  text-align: left;
+}
+
+.recruitment-description {
+  @include body();
+  font-weight: 300;
+  @include font-size(20px);
+  color: $base;
+  margin-top: 12px;
+  margin-bottom: 72px;
+  strong {
+    font-weight: 400;
+  }
+  text-align: left;
+}
+
+.schedule-header {
+  text-align: center;
+}
+
+.apply-btn {
+  background-color: $accent;
+  @include header-link();
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  @include font-size(34px);
+  text-decoration: none;
+  line-height: .96;
+  padding: 0px 4px 8px 4px;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+  margin-bottom: 32px;
+  @include for-tablet-portrait-up() {
+    margin-top: 32px;
+    padding: 0px 4px 10px 4px;
+    @include font-size(60px)
+  }
+  &:hover, &:focus, &:active {
+    color: $accent;
+    background-color: $white;
+  }
+}
+
+.apply-btn:hover::after {
+  background: $accent;
+}
+.apply-btn::after{
+  content:"";
+  position:absolute;
+  left: 4px;
+  bottom: 6px;
+  right: 4px;
+  margin: 0 auto;
+  background: $white;
+  height: 1px;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+  @include for-tablet-portrait-up {
+    left: 4px;
+    bottom: 8px;
+    right: 4px;
+  }
+}
+
+.recruitment-timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 56px 16px 32px 16px;
+  @include for-tablet-portrait-up() {
+    margin: 56px auto 16px auto;
+  }
+}
+
+.recruitment-timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: $base;
+  top: 0;
+  bottom: 48px;
+  left: -3px;
+}
+.recruitment-event {
+  text-align: left;
+  position: relative;
+  padding: 6px 0px 6px 34px;
+  margin-top: 36px;
+  min-height: 90px;
+}
+
+.recruitment-event::after {
+  content: '';
+  content: '';
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: -25px;
+  background-color: white;
+  border: 8px solid $base;
+  top: 0;
+  border-radius: 50%;
+  z-index: 1;
+}
+.event-header {
+  @include font-size(30px);
+}
+.event-description {
+  @include body();
+  font-weight: 300;
+  margin-top: 6px;
+  @include font-size(18px);
+}
+
+// FOOTER ====================================================================
 
 .site-footer {
   text-align: center;
   padding: 12px;
+  margin-top: 16px;
   p {
     @include font-size(14px);
     color: lighten($base, 25)

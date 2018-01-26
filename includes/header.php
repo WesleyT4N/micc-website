@@ -21,13 +21,9 @@
   <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- Jquery -->
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
   <!-- TypeIt (For the typewriter animation) -->
   <script src="https://cdn.jsdelivr.net/npm/typeit@5.4.1/dist/typeit.min.js"></script>
+
   <!-- Main JS file -->
   <script src="./js/main.js"></script>
 </head>

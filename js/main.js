@@ -1,41 +1,50 @@
-function hideOtherSectorDescriptions(num) {
+// Helper function for recruitment page sector interactivity
+function hideOtherSectorDescriptions(num, buttons, descs) {
   for (var i = 1; i <= 6; i++) {
     if (i === num) {
-      $('.sector-description-'+i).show();
+      descs[i-1].style.display = "block";
     } else {
-      $('.sector-description-'+i).hide();
+      descs[i-1].style.display = "none";
     }
   }
 }
 
-$(document).ready(function() {
+// Document ready callback
+var docReady = function() {
+  // IE Check
   var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
+  // IE fallback for homepage animation
   if (isIE11) {
-    console.log("is ie");
-    $(".home-sequence-1").show();
-    $(".home-sequence-2").show();
-    $(".home-sequence-3").show();
+    var hs1 = document.getElementsByClassName("home-sequence-1")[0];
+    var hs2 = document.getElementsByClassName("home-sequence-2")[0];
+    var hs3 = document.getElementsByClassName("home-sequence-3")[0];
+    var body = document.body;
+
+    hs1.style.display = "block";
+    hs2.style.display = "block";
+    hs3.style.display = "block";
+    body.style.display = "block";
   }
 
   // Handles the homepage animation
   var loc = window.location.pathname; 
-  if (loc === "/" || loc.includes("index") && !isIE11) {
-    var $s1 = $("#s1");
-    var $s2 = $("#s2");
-    var $s3 = $("#s3");
-    var $sl1 = $("#seqLink1");
-    var $sl2 = $("#seqLink2");
-    var $sl3 = $("#seqLink3");
+  if ((loc === "/" || loc.includes("index")) && !isIE11) {
+    var s1 = document.getElementById("s1");
+    var s2 = document.getElementById("s2");
+    var s3 = document.getElementById("s3");
+    var sl1 = document.getElementById("seqLink1");
+    var sl2 = document.getElementById("seqLink2");
+    var sl3 = document.getElementById("seqLink3");
 
     // Show sequence 1 (All of these use TypeIt.js)
     var seq1 = function () {
-      $s1.show();
+      s1.style.display = "block";
       var seq = new TypeIt('.home-sequence-1', {
         speed: 25,
         callback: function () {
           setTimeout(function() {
-            $s1.hide();
+            s1.style.display = "none";
             seq.destroy();
             seq2();
           }, 4000);
@@ -45,12 +54,12 @@ $(document).ready(function() {
     
     // Show sequence 2
     var seq2 = function () {
-      $s2.show();
+      s2.style.display = "block";
       var seq = new TypeIt('.home-sequence-2', {
         speed: 25,
         callback: function () {
           setTimeout(function() {
-            $s2.hide();
+            s2.style.display = "none";
             seq.destroy();
             seq3()
           }, 4000);
@@ -60,12 +69,12 @@ $(document).ready(function() {
 
     // Show sequence 3
     var seq3 = function () {
-      $s3.show();
+      s3.style.display = "block";
       var seq = new TypeIt('.home-sequence-3', {
         speed: 25,
         callback: function () {
           setTimeout(function () {
-            $s3.hide();
+            s3.style.display = "none";
             seq.destroy();
             seq1();
           }, 4000);
@@ -79,45 +88,31 @@ $(document).ready(function() {
   }
 
   if (loc.includes("recruitment")) {
-    var $btn1 = $(".sector-btn-1");
-    var $btn2 = $(".sector-btn-2");
-    var $btn3 = $(".sector-btn-3");
-    var $btn4 = $(".sector-btn-4");
-    var $btn5 = $(".sector-btn-5");
-    var $btn6 = $(".sector-btn-6");
+    // Bold current page in nav
+    document.getElementsByClassName("nav-link")[2].style.fontWeight = "700";
 
-    var $desc1 = $(".sector-description-1");
-    var $desc2 = $(".sector-description-2");
-    var $desc3 = $(".sector-description-3");
-    var $desc4 = $(".sector-description-4");
-    var $desc5 = $(".sector-description-5");
-    var $desc6 = $(".sector-description-6");
-    $btn1.click(function() {
-      hideOtherSectorDescriptions(1);
-    });
+    // Build list of sector buttons and corresponding descriptions
+    var buttons = [];
+    var descs = [];
+    for (var i = 1; i <= 6; i++) {
+      buttons.push(document.getElementsByClassName("sector-btn-"+i)[0]);
+      descs.push(document.getElementsByClassName("sector-description-"+i)[0]);
+    }
 
-    $btn2.click(function() {
-      hideOtherSectorDescriptions(2);
-    });
-
-    $btn3.click(function() {
-      hideOtherSectorDescriptions(3);
-    }); 
-
-    $btn4.click(function() {
-      hideOtherSectorDescriptions(4);
-    });
-
-    $btn5.click(function() {
-      hideOtherSectorDescriptions(5);
-    });
-
-    $btn6.click(function() {
-      hideOtherSectorDescriptions(6);
+    // Add event listeners to each button
+    buttons.forEach(function(btn, i) {
+      btn.addEventListener("click", function () {
+        hideOtherSectorDescriptions(i+1, buttons, descs);
+      });
     });
   }
-  
+};
 
-});
-
+// Vanilla JS version of JQuery's $(document).ready
+if (document.readyState === "complete" || 
+    (document.readyState !== "loading" && !document.documentElement.doScroll)) {
+   docReady();
+} else {
+  document.addEventListener("DOMContentLoaded", docReady);
+}
 

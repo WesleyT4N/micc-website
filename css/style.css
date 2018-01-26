@@ -170,6 +170,10 @@ dl, dd, ol, ul, figure {
   }
 }
 
+.current {
+  font-weight: 700;
+}
+
 .header-logo {
   display: block;
   margin: 0px auto 16px auto;

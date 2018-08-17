@@ -1,5 +1,15 @@
-<?php include('includes/config.php'); ?>
+<?php include('includes/config.php'); 
+$uri = $_SERVER['REQUEST_URI'];
+?>
+
 <!DOCTYPE html>
+<?php 
+  if ($uri == "/") {
+    echo '<html lang="en" id="home">';
+  } else {
+    echo '<html lang="en">';
+  }
+?>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -28,14 +38,24 @@
   <script src="./js/main.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="header-logo" href="/" aria-label="logo home button">
-        <img src="./img/logo.svg" alt="MICC Logo"/>
-    </a>
-    <nav>
-      <a class="nav-link" href="leadership.php">leadership</a>
-      <a class="nav-link" href="work.php">work</a>
-      <a class="nav-link" href="recruitment.php">recruitment</a>
-    </nav>
+<?php 
+  // if ($uri == "/") {
+  //   echo '  <header class="site-header-wrapper home-header-wrapper">';
+  // } else {
+  //   echo '<header class="site-header-wrapper">';
+  // }
+?>
+  <header class="site-header-wrapper">
+    <div class="site-header">
+      <a class="header-logo" href="/" aria-label="logo home button">
+          <img src="./img/logo.png" alt="MICC Logo"/>
+      </a>
+      <nav>
+        <a class="nav-link" href="leadership.php">Leadership</a>
+        <a class="nav-link" href="work.php">Work</a>
+        <a class="nav-link" href="recruitment.php">Recruitment</a>
+        <a class="nav-link" href="about.php">About</a>
+      </nav>
+    </div>
   </header>
   <div class="content">

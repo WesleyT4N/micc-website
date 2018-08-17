@@ -204,19 +204,27 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background-color: $white;
+  background-position: center;
   color: $base;
   margin: 0;
-  padding: 0 16px;
+  padding: 0;
+}
+#home {
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.88), 
+    rgba(255,255,255, 0.88)),
+    url("/img/background.jpg");
+  background-size: cover;
+  background-position: center;
   @include for-tablet-portrait-up() {
-    padding: 0 32px;
+    height: calc(100% + 42px);
   }
 }
-
 body {
   height: 100%;
-  max-width: 1024px;
   width: 100%;
-  margin: 0 auto;
+  padding: 0;
+  margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -244,24 +252,40 @@ dl, dd, ol, ul, figure {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  width: 100%;
+  max-width: 1065px;
+  margin: 0 auto;
+  padding: 16px;
 }
 
 // Navigation =================================================================
-.site-header {
-  padding-top: 24px;
-  padding-bottom: 24px;
-  line-height: 13px;
+.site-header-wrapper {
   width: 100%;
+  background-color: $white;
+  padding: 0;
+  margin: 0;
+}
+.home-header-wrapper {
+  @include shadow(2);
+}
+.site-header {
+  width: 100%;
+  height: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  max-width: 1068px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: $white;
   nav {
     margin: 0 auto;
     text-align: center;
   }
   @include for-tablet-portrait-up() {
-    margin: 0;
-    padding-top: 36px;
-    padding-bottom: 36px;
-    padding-left: 4px;
+    padding-top: 32px;
+    padding-left: 16px;
     nav {
+      margin-top: 2px;
       text-align: left;
     }
   }
@@ -280,9 +304,8 @@ dl, dd, ol, ul, figure {
   }
   @include font-size(18px);
   @include for-tablet-portrait-up {
-    margin-left: 0px;
     margin-right: 12px;
-    @include font-size(14px);
+    @include font-size(18px);
   }
 }
 
@@ -293,14 +316,15 @@ dl, dd, ol, ul, figure {
 .header-logo {
   display: block;
   img {
-    width: 183px;
-    height: 47px;
+    width: 200px;
+    // height: 47px;
   }
-  margin: 0px auto 16px auto;
+  margin: 0px auto 14px auto;
   text-align: center;
-
   @include for-tablet-portrait-up() {
-    margin-top: -16px;
+    margin-top: -14px;
+    margin-bottom: -2px;
+    margin-right: 16px;
     float: right;
   }
 }
@@ -308,9 +332,9 @@ dl, dd, ol, ul, figure {
 // Homepage ===================================================================
 
 .home-sequence {
-  max-width: 1024px;
   width: 100%;
   word-wrap: normal;
+  margin-top: 8px;
   strong {
     @include header-bold();
   }
@@ -353,11 +377,11 @@ dl, dd, ol, ul, figure {
   }
   &:hover, &:focus, &:active {
     color: $accent;
-    background-color: $white;
+    background-color: rgba(0,0,0,0);
   }
 }
 
-.seq-link:hover::after {
+.seq-link:hover::after, .seq-link:focus::after, .seq-link:active::after {
   background: $accent;
 }
 .seq-link::after{
@@ -377,6 +401,204 @@ dl, dd, ol, ul, figure {
     right: 4px;
   }
 }
+
+// WORK PAGE =================================================================
+.work-header {
+  @include header-bold();
+  color: $accent;
+  text-align: right;
+}
+
+.work-description {
+  text-align: right;
+  max-width: 900px;
+  margin: 4px 0px 42px auto;
+  font-weight: 300;
+  @include font-size(20px);
+}
+
+.processes {
+  text-align: center;
+  margin-bottom: 32px;
+  margin: 0 auto;
+}
+
+.process-button {
+  position: relative;
+  width: 31%;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  text-align: center;
+  background-color: $white;
+  outline: none;
+  border: none;
+  transition: all .25s ease;
+  overflow: hidden;
+  @include for-tablet-portrait-up() {
+    margin-bottom: 0px;
+    width: 19%;
+    padding-bottom: 20px;
+  }
+  @include for-tablet-landscape-up() {
+    width: 14%;
+  }
+  &:hover,&:focus {
+    @include shadow(2);
+  }
+  &:active {
+    @include shadow(1);
+  }
+}
+
+.process-title {
+  @include body();
+  @include font-size(14px);
+  @include for-tablet-landscape-up() { 
+    margin-top: -10px;
+    @include font-size(16px);
+  }
+  font-weight: 400;
+}
+
+.process-icon {
+  height: 60px;
+  max-width: 40px;
+  margin: 0;
+  background-color: $white;
+  @include for-tablet-landscape-up() {
+    height: 80px;
+    max-width: 60px;
+  }
+}
+
+.process-description {
+  padding: 20px 32px 24px 32px;
+  background-color: darken($white, 5);
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  p {
+    @include font-size(18px);
+    font-weight: 300;
+    strong {
+      font-weight: 400;
+    }
+  }
+}
+
+// .process-description-1, .process-description-2, .process-description-3, 
+// .process-description-4, .process-description-5, .process-description-6 {
+//   display: none;
+//   transition: all .25s ease;
+// }
+
+.process-description-1, .process-description-2, .process-description-3, .process-description-4 {
+  display: none;
+}
+
+.process-description-1::after {
+  @include for-tablet-portrait-up() {
+    content: "";
+    position: absolute;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -10px;
+    left: calc(9.5%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: darken($white, 5) transparent transparent darken($white, 5);
+    z-index: 0;
+  }
+  @include for-tablet-landscape-up() {
+    left: calc(20.5%);
+  }
+}
+
+.process-description-2::after {
+  @include for-tablet-portrait-up() {
+    content: "";
+    position: absolute;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -10px;
+    left: calc(29%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: darken($white, 5) transparent transparent darken($white, 5);
+    z-index: 0;
+  }
+  @include for-tablet-landscape-up() {
+    left: calc(34.5% + 1px);
+  }
+}
+
+.process-description-3::after {
+  @include for-tablet-portrait-up() {
+    content: "";
+    position: absolute;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -10px;
+    left: calc(48%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: darken($white, 5) transparent transparent darken($white, 5);
+    z-index: 0;
+  }
+  @include for-tablet-landscape-up() {
+    left: calc(48.5% + 1px);
+  }
+}
+
+.process-description-4::after {
+  @include for-tablet-portrait-up() {
+    content: "";
+    position: absolute;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -10px;
+    left: calc(68%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: darken($white, 5) transparent transparent darken($white, 5);
+    z-index: 0;
+  }
+  @include for-tablet-landscape-up() {
+    left: calc(63% + 2px);
+  }
+}
+
+.process-description-5::after {
+  @include for-tablet-portrait-up() {
+    content: "";
+    position: absolute;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: -10px;
+    left: calc(87%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: darken($white, 5) transparent transparent darken($white, 5);
+    z-index: 0;
+  }
+  @include for-tablet-landscape-up() {
+    left: calc(77% + 2px);
+  }
+}
+
+
+
+
 
 // RECRUITMENT PAGE ==========================================================
 .sectors {
@@ -409,8 +631,6 @@ dl, dd, ol, ul, figure {
   }
 }
 
-
-
 .sector-title {
   @include body();
   @include font-size(14px);
@@ -430,7 +650,6 @@ dl, dd, ol, ul, figure {
     height: 80px;
     max-width: 60px;
   }
-
 }
 
 .sector-description {
@@ -602,11 +821,11 @@ dl, dd, ol, ul, figure {
   }
   &:hover, &:focus, &:active {
     color: $accent;
-    background-color: $white;
+    background-color: rgba(0,0,0,0);
   }
 }
 
-.apply-btn:hover::after {
+.apply-btn:hover::after, .apply-btn:active::after, .apply-btn:focus::after {
   background: $accent;
 }
 .apply-btn::after{
@@ -673,7 +892,36 @@ dl, dd, ol, ul, figure {
   @include body();
   font-weight: 300;
   margin-top: 6px;
-  @include font-size(18px);
+  @include font-size(20px);
+}
+
+// ABOUT ====================================================================== 
+.about-header {
+  @include header-bold();
+  margin: 0 auto;
+  text-align: center;
+  color: $accent;
+}
+
+.about-description {
+  @include body();
+  font-weight: 300;
+  @include font-size(20px);
+  color: $base;
+  margin-top: 12px;
+  strong {
+    font-weight: 400;
+  }
+  text-align: center;
+}
+.about-description-last {
+  margin-bottom: 72px;
+}
+
+.alumni-img {
+  display: block;
+  margin: 16px auto 72px auto;
+  text-align: center;
 }
 
 // FOOTER ====================================================================

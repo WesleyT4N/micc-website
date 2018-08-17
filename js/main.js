@@ -1,3 +1,11 @@
+function homeCheck() {
+  var loc = window.location.pathname; 
+  if (loc === "/" || loc.includes("index")) {
+    var html = document.getElementsByTagName("html")[0];
+    html.classList += " home";
+  }
+}
+
 // Helper function for recruitment page sector interactivity
 function hideOtherSectorDescriptions(num, buttons, descs) {
   for (var i = 1; i <= 6; i++) {
@@ -11,6 +19,10 @@ function hideOtherSectorDescriptions(num, buttons, descs) {
 
 // Document ready callback
 var docReady = function() {
+  // Set copyright date
+  var date = document.getElementsByClassName("date")[0];
+  date.innerText = (new Date()).getFullYear();
+
   // IE Check
   var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
@@ -87,10 +99,9 @@ var docReady = function() {
     seq1();
   }
 
-  if (loc.includes("recruitment")) {
-    // Bold current page in nav
-    document.getElementsByClassName("nav-link")[2].style.fontWeight = "700";
 
+
+  if (loc.includes("about")) {
     // Build list of sector buttons and corresponding descriptions
     var buttons = [];
     var descs = [];
@@ -106,7 +117,15 @@ var docReady = function() {
       });
     });
   }
+
+  if (loc.includes("work")) {
+  }
+
+  if (loc.includes("leadership")) {
+  }
 };
+
+document.addEventListener("load", homeCheck);
 
 // Vanilla JS version of JQuery's $(document).ready
 if (document.readyState === "complete" || 

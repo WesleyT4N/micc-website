@@ -75,6 +75,7 @@
     the Guggenheim Global Shipping ETF (NASDAQ: SEA)</p>
   </div>
   <div class="sector-description sector-description-6">
-    <p>With the help of three senior members, MICC's <strong>real estate sector</strong> was established in the Spring 2017 semester. Students on the real estate team analyze firms, funds, and investment groups, such as Real Estate Investment Trusts (REITS), that hold and/or manage physical properties. Members of the sector learn advanced real estate modeling techniques, such as Net Asset Valuation, and gain access to the number of MICC alumni who work in real estate finance. The real estate sector looks forward to growing in the coming semesters./p>
+    <p>With the help of three senior members, MICC's <strong>real estate sector</strong> was established in the Spring 2017 semester. Students on the real estate team analyze firms, funds, and investment groups, such as Real Estate Investment Trusts (REITS), that hold and/or manage physical properties. Members of the sector learn advanced real estate modeling techniques, such as Net Asset Valuation, and gain access to the number of MICC alumni who work in real estate finance. The real estate sector looks forward to growing in the coming semesters.
+    </p>
   </div>
 </div>
